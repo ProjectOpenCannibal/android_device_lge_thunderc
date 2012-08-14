@@ -49,45 +49,6 @@ PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/common/ueventd.thunderc.rc:root/ueventd.thunder.rc \
     device/lge/thunderc/files/common/etc/init.local.rc:/system/etc/init.local.rc
 
-# Off-mode charging pieces
-PRODUCT_COPY_FILES += \
-    device/lge/thunderc/files/ftmpower:root/sbin/ftmpower \
-    device/lge/thunderc/files/battery_charging:system/bin/battery_charging \
-    device/lge/thunderc/files/common/sbin/chargerlogo:root/sbin/chargerlogo \
-    device/lge/thunderc/files/common/chargerimages/battery_ani_01.rle:root/chargerimages/battery_ani_01.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_ani_02.rle:root/chargerimages/battery_ani_02.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_ani_03.rle:root/chargerimages/battery_ani_03.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_ani_04.rle:root/chargerimages/battery_ani_04.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_ani_05.rle:root/chargerimages/battery_ani_05.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_01.rle:root/chargerimages/battery_charging_01.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_02.rle:root/chargerimages/battery_charging_02.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_03.rle:root/chargerimages/battery_charging_03.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_04.rle:root/chargerimages/battery_charging_04.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_05.rle:root/chargerimages/battery_charging_05.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_charging_06.rle:root/chargerimages/battery_charging_06.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_notenough.rle:root/chargerimages/battery_notenough.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_bg.rle:root/chargerimages/battery_bg.rle \
-    device/lge/thunderc/files/common/chargerimages/black_bg.rle:root/chargerimages/black_bg.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_01.rle \
-    device/lge/thunderc/files/common/chargerimages/battery_wait_ani_01.rle:root/chargerimages/battery_wait_ani_02.rle \
-
-# Change this if you'd like to use the splash screen from a different carrier
-# Change this to a non-existent directory if you'd like to disable the boot animation
-BOOTIMAGE_MODEL := $(SUB_MODEL)
-
-# Locate vendor bootimage files if present
-# Because these are carrier specific, I've left the default to no logo.
-BOOTIMAGE_FILES := $(wildcard device/lge/thunderc/files/$(BOOTIMAGE_MODEL)/bootimages/*.rle)
-
-ifeq ($(BOOTIMAGE_FILES),)
-  PRODUCT_COPY_FILES += \
-      device/lge/thunderc/files/common/initlogo.rle:root/initlogo.rle
-else
-  PRODUCT_PACKAGES += bootlogo
-  PRODUCT_COPY_FILES += \
-      $(foreach f,$(BOOTIMAGE_FILES),$(f):root/bootimages/$(notdir $(f)))
-endif
-
 # 2D (using proprietary because of poor performance of open source libs)
 PRODUCT_COPY_FILES += \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/lib/hw/gralloc.default.so:system/lib/hw/gralloc.default.so \
