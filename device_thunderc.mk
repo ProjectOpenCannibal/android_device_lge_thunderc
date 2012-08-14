@@ -129,7 +129,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/thunderc/files/$(SUB_MODEL)/kernel/wireless.ko:system/lib/modules/wireless.ko \
     device/lge/thunderc/files/$(SUB_MODEL)/kernel/tun.ko:system/lib/modules/tun.ko \
-    device/lge/thunderc/files/$(SUB_MODEL)/kernel/cifs.ko:system/lib/modules/cifs.ko \
+    device/lge/thunderc/files/$(SUB_MODEL)/kernel/librasdioif.ko:system/lib/modules/librasdioif.ko \
     device/lge/thunderc/files/common/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
     vendor/lge/thunderc/proprietary/$(SUB_MODEL)/system/etc/wl/nvram.txt:system/etc/wl/nvram.txt \
     device/lge/thunderc/files/common/etc/dhcpcd/dhcpcd.conf:system/etc/dhcpcd/dhcpcd.conf \
