@@ -94,6 +94,8 @@ ifeq ($(SUB_MODEL),LW690)
     BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x0c900000
 endif
 
+BOARD_CUSTOM_RECOVERY_POWER_PROFILE := ../../device/lge/thunderc/recovery/custom_power.c
+
 #BOARD_HAS_NO_SELECT_BUTTON := true
 
 WITH_DEXPREOPT := false
