@@ -59,7 +59,7 @@ int resY=480;		//Value obtained from function 'gr_fb_height()'
 	only the buttons are active instead of the full screen; set to 0
 	for full screen and debugging
  */
-int touchY=400;
+int touchY=2434;
 
 /*
 	define a storage limit for backup requirements, we recommend setting
@@ -75,6 +75,11 @@ int BATT_POS=RIGHT_ALIGN;
 int TIME_LINE=1;
 // define the screen position of the clock
 int TIME_POS=RIGHT_ALIGN;
+
+/* define the battery capacity sys interface file
+ * don't change unless your device needs it!
+ */
+char batt_cap = "/sys/class/power_supply/battery/capacity";
 
 char* MENU_HEADERS[] = { NULL };
 
